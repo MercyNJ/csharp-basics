@@ -1,4 +1,4 @@
-Console.WriteLine("Hello, World");
+ï»¿Console.WriteLine("Hello, World");
 
 // Explicit Main entry point
 using System;
@@ -944,9 +944,9 @@ AnsiConsole.MarkupLine("[bold green]Hello[/] from a file-based app!");
 static void ConfigureLogging()
 {
 #if DEBUG
-    Console.WriteLine("Debug logging enabled — verbose output active.");
+    Console.WriteLine("Debug logging enabled â€” verbose output active.");
 #else
-    Console.WriteLine("Release logging — errors only.");
+    Console.WriteLine("Release logging â€” errors only.");
 #endif
 }
 
@@ -1175,7 +1175,7 @@ Console.WriteLine($"point2: ({point2.X}, {point2.Y})");
 var list1 = new List<int> { 1, 2, 3 };
 var list2 = list1;
 list2.Add(4);
-Console.WriteLine($"list1 count: {list1.Count}"); // 4 — same object
+Console.WriteLine($"list1 count: {list1.Count}"); // 4 â€” same object
 
 string message = "Hello, world!";
 
@@ -1271,7 +1271,7 @@ var c1 = new Customer("Grace");
 var c2 = c1; // both variables reference the same object
 
 c2.Name = "Hopper";
-Console.WriteLine(c1.Name); // Hopper — c1 sees the change made through c2
+Console.WriteLine(c1.Name); // Hopper â€” c1 sees the change made through c2
 
 public class Container
 {
@@ -1353,8 +1353,8 @@ var p1 = new Point { X = 3, Y = 4 };
 var p2 = p1; // copies the data
 p2.X = 10;
 
-Console.WriteLine(p1); // (3, 4)  — p1 is unchanged
-Console.WriteLine(p2); // (10, 4) — only p2 was modified
+Console.WriteLine(p1); // (3, 4)  â€” p1 is unchanged
+Console.WriteLine(p2); // (10, 4) â€” only p2 was modified
 
 struct ConnectionSettings
 {
@@ -1406,11 +1406,11 @@ readonly struct Temperature
 
     public double Fahrenheit => Celsius * 9.0 / 5.0 + 32.0;
 
-    public override string ToString() => $"{Celsius:F1}°C ({Fahrenheit:F1}°F)";
+    public override string ToString() => $"{Celsius:F1}Â°C ({Fahrenheit:F1}Â°F)";
 }
 
 var temp = new Temperature(100);
-Console.WriteLine(temp); // 100.0°C (212.0°F)
+Console.WriteLine(temp); // 100.0Â°C (212.0Â°F)
 // temp.Celsius = 50; // Error: property is read-only
 
 struct Velocity
@@ -1469,7 +1469,7 @@ var home = new Coordinate(47.6062, -122.3321);
 var copy = home;
 
 Console.WriteLine(home);           // Coordinate { Latitude = 47.6062, Longitude = -122.3321 }
-Console.WriteLine(home == copy);   // True — value equality
+Console.WriteLine(home == copy);   // True â€” value equality
 
 var phones = new string[] { "555-1234" };
 var person1 = new Person("Grace", "Hopper", phones);
@@ -1479,7 +1479,7 @@ Console.WriteLine(person1 == person2);              // True
 Console.WriteLine(ReferenceEquals(person1, person2)); // False
 
 person1.PhoneNumbers[0] = "555-9999";
-Console.WriteLine(person2.PhoneNumbers[0]); // 555-9999 — same array
+Console.WriteLine(person2.PhoneNumbers[0]); // 555-9999 â€” same array
 
 // with expression
 var original = new Person("Grace", "Hopper");
@@ -1934,9 +1934,9 @@ var sizeChart = new Dictionary<string, (int Min, int Max)>
 
 if (sizeChart.TryGetValue("Medium", out var range))
 {
-    Console.WriteLine($"Medium: {range.Min}–{range.Max}");
+    Console.WriteLine($"Medium: {range.Min}â€“{range.Max}");
 }
-// Output: Medium: 51–100
+// Output: Medium: 51â€“100
 
 // Tuple as composite key
 var grid = new Dictionary<(int Row, int Column), string>
@@ -2149,13 +2149,13 @@ int? temperature = 72;
 
 if (temperature is int degrees)
 {
-    Console.WriteLine($"Temperature is {degrees}°F.");
+    Console.WriteLine($"Temperature is {degrees}Â°F.");
 }
 else
 {
     Console.WriteLine("Temperature is not recorded.");
 }
-// Output: Temperature is 72°F.
+// Output: Temperature is 72Â°F.
 
 // HasValue / Value
 int? count = 42;
@@ -2213,7 +2213,7 @@ int? sum     = a + b;   // both non-null: result is 30
 int? product = a * c;   // one operand is null: result is null
 
 Console.WriteLine(sum);               // 30
-Console.WriteLine(product.HasValue);  // False — null propagates through arithmetic
+Console.WriteLine(product.HasValue);  // False â€” null propagates through arithmetic
 
 // XML:
 // <Nullable>enable</Nullable>
@@ -2643,14 +2643,14 @@ Console.WriteLine(formatted);
 Console.WriteLine(report);
 
 // s[i] returns a UTF-16 char
-string word = "café";
+string word = "cafÃ©";
 
 Console.WriteLine(word.Length);          // 4
 Console.WriteLine(word[0]);              // c
 
 foreach (char c in word)
 {
-    Console.Write($"{c} ");              // c a f é
+    Console.Write($"{c} ");              // c a f Ã©
 }
 Console.WriteLine();
 
@@ -3285,7 +3285,7 @@ static string FormatSensorValue(object reading) =>
     reading switch
     {
         int count => $"Count: {count}",
-        double temperature => $"Temperature: {temperature:F1}°C",
+        double temperature => $"Temperature: {temperature:F1}Â°C",
         string message => $"Message: {message}",
         _ => "Unsupported reading"
     };
@@ -3397,7 +3397,7 @@ static void ShowStatus()
 static void ShowForecast()
 {
     var (city, high, _, _) = GetForecast();
-    Console.WriteLine($"{city}: high {high}°C");
+    Console.WriteLine($"{city}: high {high}Â°C");
 
     static (string City, int High, int Low, int RainChance) GetForecast() =>
         ("Portland", 18, 9, 40);
@@ -3549,8 +3549,8 @@ double precise = 7.0 / 2;
 Console.WriteLine(precise); // => 3.5
 
 // Sign follows the dividend
-Console.WriteLine(-7 % 3);  // => -1  (-7 = 3 × -2 + (-1))
-Console.WriteLine(7 % -3);  // => 1   ( 7 = -3 × -2 + 1)
+Console.WriteLine(-7 % 3);  // => -1  (-7 = 3 Ã— -2 + (-1))
+Console.WriteLine(7 % -3);  // => 1   ( 7 = -3 Ã— -2 + 1)
 
 int temperature = 20;
 int windChill = -5;
@@ -7012,10 +7012,10 @@ record struct Measurement(double Value, string Unit);
 
 // record struct copies
 Console.WriteLine("\n=== Record struct: Measurement ===");
-var temp = new Measurement(72.5, "°F");
+var temp = new Measurement(72.5, "Â°F");
 var copy = temp;
 
-copy = copy with { Value = 23.0, Unit = "°C" };
+copy = copy with { Value = 23.0, Unit = "Â°C" };
 
 Console.WriteLine($"Original: {temp.Value}{temp.Unit}");
 Console.WriteLine($"Copy (converted): {copy.Value}{copy.Unit}");
@@ -7136,8 +7136,8 @@ class CalibratedReading(double value, string unit, double offset)
 }
 
 Console.WriteLine("\n=== Evolve: struct -> class ===");
-var raw = new SensorReading(72.5, "°F");
-var calibrated = new CalibratedReading(72.5, "°F", offset: -0.3);
+var raw = new SensorReading(72.5, "Â°F");
+var calibrated = new CalibratedReading(72.5, "Â°F", offset: -0.3);
 
 Console.WriteLine($"Raw:        {raw.Display()}");
 Console.WriteLine($"Calibrated: {calibrated.Display()}");
@@ -8048,7 +8048,7 @@ public record class Contact(bool Open) : Sensor;
 // Exhaustive without a default arm
 public static string Describe(Sensor sensor) => sensor switch
 {
-    Temperature temperature => $"{temperature.Celsius:F1}°C",
+    Temperature temperature => $"{temperature.Celsius:F1}Â°C",
     Humidity humidity => $"{humidity.Percent:F0}% RH",
     Contact contact => contact.Open ? "open" : "closed",
     // No default arm needed
@@ -8235,17 +8235,17 @@ public static class ExtensionMethodsDemonstrations
         Point rotatePoint1 = new Point(10, 0);
         Console.WriteLine($"Before Rotate: {rotatePoint1}");
         rotatePoint1.Rotate(90);
-        Console.WriteLine($"After Rotate(90°): {rotatePoint1}");
+        Console.WriteLine($"After Rotate(90Â°): {rotatePoint1}");
 
         Point rotatePoint2 = new Point(5, 5);
         Console.WriteLine($"Before Rotate: {rotatePoint2}");
         rotatePoint2.Rotate(45);
-        Console.WriteLine($"After Rotate(45°): {rotatePoint2}");
+        Console.WriteLine($"After Rotate(45Â°): {rotatePoint2}");
 
         Point rotatePoint3 = new Point(3, 4);
         Console.WriteLine($"Before Rotate: {rotatePoint3}");
         rotatePoint3.Rotate(180);
-        Console.WriteLine($"After Rotate(180°): {rotatePoint3}");
+        Console.WriteLine($"After Rotate(180Â°): {rotatePoint3}");
         Console.WriteLine();
     }
 
@@ -8492,17 +8492,17 @@ Console.WriteLine();
 Point rotatePoint1 = new Point(10, 0);
 Console.WriteLine($"Before Rotate: {rotatePoint1}");
 rotatePoint1.Rotate(90);
-Console.WriteLine($"After Rotate(90°): {rotatePoint1}");
+Console.WriteLine($"After Rotate(90Â°): {rotatePoint1}");
 
 Point rotatePoint2 = new Point(5, 5);
 Console.WriteLine($"Before Rotate: {rotatePoint2}");
 rotatePoint2.Rotate(45);
-Console.WriteLine($"After Rotate(45°): {rotatePoint2}");
+Console.WriteLine($"After Rotate(45Â°): {rotatePoint2}");
 
 Point rotatePoint3 = new Point(3, 4);
 Console.WriteLine($"Before Rotate: {rotatePoint3}");
 rotatePoint3.Rotate(180);
-Console.WriteLine($"After Rotate(180°): {rotatePoint3}");
+Console.WriteLine($"After Rotate(180Â°): {rotatePoint3}");
 Console.WriteLine();
 
 public sealed class Path
@@ -8606,7 +8606,7 @@ transformPoint = transformPoint + (5, -3);
 Console.WriteLine($"After translating by (5, -3): {transformPoint}");
 
 transformPoint.Rotate(45);
-Console.WriteLine($"After rotating 45°: {transformPoint}");
+Console.WriteLine($"After rotating 45Â°: {transformPoint}");
 
 Vector2 finalVector = transformPoint.ToVector();
 Console.WriteLine($"Final result as Vector2: {finalVector}");
@@ -8951,12 +8951,12 @@ Console.WriteLine();
 
 string[] answers =
 [
-    "It is certain.",       "Reply hazy, try again.",     "Don’t count on
+    "It is certain.",       "Reply hazy, try again.",     "Donâ€™t count on
 it.",
     "It is decidedly so.",  "Ask again later.",           "My reply is no.",
     "Without a doubt.",     "Better not tell you now.",   "My sources say
 no.",
-    "Yes – definitely.",    "Cannot predict now.",        "Outlook not so
+    "Yes â€“ definitely.",    "Cannot predict now.",        "Outlook not so
 good.",
     "You may rely on it.",  "Concentrate and ask again.", "Very doubtful.",
     "As I see it, yes.",
@@ -9025,7 +9025,7 @@ it.",
     "It is decidedly so.",  "Ask again later.",           "My reply is no.",
     "Without a doubt.",     "Better not tell you now.",   "My sources say
 no.",
-    "Yes – definitely.",    "Cannot predict now.",        "Outlook not so
+    "Yes â€“ definitely.",    "Cannot predict now.",        "Outlook not so
 good.",
     "You may rely on it.",  "Concentrate and ask again.", "Very doubtful.",
     "As I see it, yes.",
@@ -9115,12 +9115,12 @@ await Utilities.ShowConsoleAnimation();
 
 string[] answers =
 [
-    "It is certain.",       "Reply hazy, try again.",     "Don’t count on
+    "It is certain.",       "Reply hazy, try again.",     "Donâ€™t count on
 it.",
     "It is decidedly so.",  "Ask again later.",           "My reply is no.",
     "Without a doubt.",     "Better not tell you now.",   "My sources say
 no.",
-    "Yes – definitely.",    "Cannot predict now.",        "Outlook not so
+    "Yes â€“ definitely.",    "Cannot predict now.",        "Outlook not so
 good.",
     "You may rely on it.",  "Concentrate and ask again.", "Very doubtful.",
     "As I see it, yes.",
@@ -10112,7 +10112,7 @@ static readonly City[] cities = [
     new City("Tokyo", 37_833_000),
     new City("Delhi", 30_290_000),
     new City("Shanghai", 27_110_000),
-    new City("São Paulo", 22_043_000),
+    new City("SÃ£o Paulo", 22_043_000),
     new City("Mumbai", 20_412_000),
     new City("Beijing", 20_384_000),
     new City("Cairo", 18_772_000),
@@ -10162,7 +10162,7 @@ City[] cities = [
     new City("Tokyo", 37_833_000),
     new City("Delhi", 30_290_000),
     new City("Shanghai", 27_110_000),
-    new City("São Paulo", 22_043_000)
+    new City("SÃ£o Paulo", 22_043_000)
 ];
 
 IEnumerable<City> queryMajorCities =
@@ -10410,7 +10410,7 @@ static readonly City[] cities = [
     new City("Tokyo", 37_833_000),
     new City("Delhi", 30_290_000),
     new City("Shanghai", 27_110_000),
-    new City("São Paulo", 22_043_000),
+    new City("SÃ£o Paulo", 22_043_000),
     new City("Mumbai", 20_412_000),
     new City("Beijing", 20_384_000),
     new City("Cairo", 18_772_000),
@@ -12576,7 +12576,7 @@ arrList.Add(
     new Student
     (
         FirstName: "Claire",
-        LastName: "O’Donnell",
+        LastName: "Oâ€™Donnell",
         ExamScores: new int[] { 75, 84, 91, 39 }
     ));
 arrList.Add(
@@ -24333,11 +24333,11 @@ string columns = "Column 1\tColumn 2\tColumn 3";
 string rows = "Row 1\r\nRow 2\r\nRow 3";
 
 string title = "\"The \u00C6olean Harp\", by Samuel Taylor Coleridge";
-//Output: "The Æolean Harp", by Samuel Taylor Coleridge
+//Output: "The Ã†olean Harp", by Samuel Taylor Coleridge
 
 // Verbatim string
 string title = "\"The \u00C6olean Harp\", by Samuel Taylor Coleridge";
-//Output: "The Æolean Harp", by Samuel Taylor Coleridge
+//Output: "The Ã†olean Harp", by Samuel Taylor Coleridge
 string filePath = @"C:\Users\scoleridge\Documents\";
 //Output: C:\Users\scoleridge\Documents\
 
@@ -26815,9 +26815,9 @@ AnsiConsole.MarkupLine("[bold green]Hello[/] from a file-based app!");
 static void ConfigureLogging()
 {
 #if DEBUG
-    Console.WriteLine("Debug logging enabled — verbose output active.");
+    Console.WriteLine("Debug logging enabled â€” verbose output active.");
 #else
-    Console.WriteLine("Release logging — errors only.");
+    Console.WriteLine("Release logging â€” errors only.");
 #endif
 }
 
@@ -27046,7 +27046,7 @@ Console.WriteLine($"point2: ({point2.X}, {point2.Y})");
 var list1 = new List<int> { 1, 2, 3 };
 var list2 = list1;
 list2.Add(4);
-Console.WriteLine($"list1 count: {list1.Count}"); // 4 — same object
+Console.WriteLine($"list1 count: {list1.Count}"); // 4 â€” same object
 
 string message = "Hello, world!";
 
@@ -27142,7 +27142,7 @@ var c1 = new Customer("Grace");
 var c2 = c1; // both variables reference the same object
 
 c2.Name = "Hopper";
-Console.WriteLine(c1.Name); // Hopper — c1 sees the change made through c2
+Console.WriteLine(c1.Name); // Hopper â€” c1 sees the change made through c2
 
 public class Container
 {
@@ -27224,8 +27224,8 @@ var p1 = new Point { X = 3, Y = 4 };
 var p2 = p1; // copies the data
 p2.X = 10;
 
-Console.WriteLine(p1); // (3, 4)  — p1 is unchanged
-Console.WriteLine(p2); // (10, 4) — only p2 was modified
+Console.WriteLine(p1); // (3, 4)  â€” p1 is unchanged
+Console.WriteLine(p2); // (10, 4) â€” only p2 was modified
 
 struct ConnectionSettings
 {
@@ -27277,11 +27277,11 @@ readonly struct Temperature
 
     public double Fahrenheit => Celsius * 9.0 / 5.0 + 32.0;
 
-    public override string ToString() => $"{Celsius:F1}°C ({Fahrenheit:F1}°F)";
+    public override string ToString() => $"{Celsius:F1}Â°C ({Fahrenheit:F1}Â°F)";
 }
 
 var temp = new Temperature(100);
-Console.WriteLine(temp); // 100.0°C (212.0°F)
+Console.WriteLine(temp); // 100.0Â°C (212.0Â°F)
 // temp.Celsius = 50; // Error: property is read-only
 
 struct Velocity
@@ -27340,7 +27340,7 @@ var home = new Coordinate(47.6062, -122.3321);
 var copy = home;
 
 Console.WriteLine(home);           // Coordinate { Latitude = 47.6062, Longitude = -122.3321 }
-Console.WriteLine(home == copy);   // True — value equality
+Console.WriteLine(home == copy);   // True â€” value equality
 
 var phones = new string[] { "555-1234" };
 var person1 = new Person("Grace", "Hopper", phones);
@@ -27350,7 +27350,7 @@ Console.WriteLine(person1 == person2);              // True
 Console.WriteLine(ReferenceEquals(person1, person2)); // False
 
 person1.PhoneNumbers[0] = "555-9999";
-Console.WriteLine(person2.PhoneNumbers[0]); // 555-9999 — same array
+Console.WriteLine(person2.PhoneNumbers[0]); // 555-9999 â€” same array
 
 // with expression
 var original = new Person("Grace", "Hopper");
@@ -27805,9 +27805,9 @@ var sizeChart = new Dictionary<string, (int Min, int Max)>
 
 if (sizeChart.TryGetValue("Medium", out var range))
 {
-    Console.WriteLine($"Medium: {range.Min}–{range.Max}");
+    Console.WriteLine($"Medium: {range.Min}â€“{range.Max}");
 }
-// Output: Medium: 51–100
+// Output: Medium: 51â€“100
 
 // Tuple as composite key
 var grid = new Dictionary<(int Row, int Column), string>
@@ -28020,13 +28020,13 @@ int? temperature = 72;
 
 if (temperature is int degrees)
 {
-    Console.WriteLine($"Temperature is {degrees}°F.");
+    Console.WriteLine($"Temperature is {degrees}Â°F.");
 }
 else
 {
     Console.WriteLine("Temperature is not recorded.");
 }
-// Output: Temperature is 72°F.
+// Output: Temperature is 72Â°F.
 
 // HasValue / Value
 int? count = 42;
@@ -28084,7 +28084,7 @@ int? sum     = a + b;   // both non-null: result is 30
 int? product = a * c;   // one operand is null: result is null
 
 Console.WriteLine(sum);               // 30
-Console.WriteLine(product.HasValue);  // False — null propagates through arithmetic
+Console.WriteLine(product.HasValue);  // False â€” null propagates through arithmetic
 
 // XML:
 // <Nullable>enable</Nullable>
@@ -28514,14 +28514,14 @@ Console.WriteLine(formatted);
 Console.WriteLine(report);
 
 // s[i] returns a UTF-16 char
-string word = "café";
+string word = "cafÃ©";
 
 Console.WriteLine(word.Length);          // 4
 Console.WriteLine(word[0]);              // c
 
 foreach (char c in word)
 {
-    Console.Write($"{c} ");              // c a f é
+    Console.Write($"{c} ");              // c a f Ã©
 }
 Console.WriteLine();
 
@@ -29156,7 +29156,7 @@ static string FormatSensorValue(object reading) =>
     reading switch
     {
         int count => $"Count: {count}",
-        double temperature => $"Temperature: {temperature:F1}°C",
+        double temperature => $"Temperature: {temperature:F1}Â°C",
         string message => $"Message: {message}",
         _ => "Unsupported reading"
     };
@@ -29268,7 +29268,7 @@ static void ShowStatus()
 static void ShowForecast()
 {
     var (city, high, _, _) = GetForecast();
-    Console.WriteLine($"{city}: high {high}°C");
+    Console.WriteLine($"{city}: high {high}Â°C");
 
     static (string City, int High, int Low, int RainChance) GetForecast() =>
         ("Portland", 18, 9, 40);
@@ -29420,8 +29420,8 @@ double precise = 7.0 / 2;
 Console.WriteLine(precise); // => 3.5
 
 // Sign follows the dividend
-Console.WriteLine(-7 % 3);  // => -1  (-7 = 3 × -2 + (-1))
-Console.WriteLine(7 % -3);  // => 1   ( 7 = -3 × -2 + 1)
+Console.WriteLine(-7 % 3);  // => -1  (-7 = 3 Ã— -2 + (-1))
+Console.WriteLine(7 % -3);  // => 1   ( 7 = -3 Ã— -2 + 1)
 
 int temperature = 20;
 int windChill = -5;
@@ -32883,10 +32883,10 @@ record struct Measurement(double Value, string Unit);
 
 // record struct copies
 Console.WriteLine("\n=== Record struct: Measurement ===");
-var temp = new Measurement(72.5, "°F");
+var temp = new Measurement(72.5, "Â°F");
 var copy = temp;
 
-copy = copy with { Value = 23.0, Unit = "°C" };
+copy = copy with { Value = 23.0, Unit = "Â°C" };
 
 Console.WriteLine($"Original: {temp.Value}{temp.Unit}");
 Console.WriteLine($"Copy (converted): {copy.Value}{copy.Unit}");
@@ -33007,8 +33007,8 @@ class CalibratedReading(double value, string unit, double offset)
 }
 
 Console.WriteLine("\n=== Evolve: struct -> class ===");
-var raw = new SensorReading(72.5, "°F");
-var calibrated = new CalibratedReading(72.5, "°F", offset: -0.3);
+var raw = new SensorReading(72.5, "Â°F");
+var calibrated = new CalibratedReading(72.5, "Â°F", offset: -0.3);
 
 Console.WriteLine($"Raw:        {raw.Display()}");
 Console.WriteLine($"Calibrated: {calibrated.Display()}");
@@ -33919,7 +33919,7 @@ public record class Contact(bool Open) : Sensor;
 // Exhaustive without a default arm
 public static string Describe(Sensor sensor) => sensor switch
 {
-    Temperature temperature => $"{temperature.Celsius:F1}°C",
+    Temperature temperature => $"{temperature.Celsius:F1}Â°C",
     Humidity humidity => $"{humidity.Percent:F0}% RH",
     Contact contact => contact.Open ? "open" : "closed",
     // No default arm needed
@@ -34106,17 +34106,17 @@ public static class ExtensionMethodsDemonstrations
         Point rotatePoint1 = new Point(10, 0);
         Console.WriteLine($"Before Rotate: {rotatePoint1}");
         rotatePoint1.Rotate(90);
-        Console.WriteLine($"After Rotate(90°): {rotatePoint1}");
+        Console.WriteLine($"After Rotate(90Â°): {rotatePoint1}");
 
         Point rotatePoint2 = new Point(5, 5);
         Console.WriteLine($"Before Rotate: {rotatePoint2}");
         rotatePoint2.Rotate(45);
-        Console.WriteLine($"After Rotate(45°): {rotatePoint2}");
+        Console.WriteLine($"After Rotate(45Â°): {rotatePoint2}");
 
         Point rotatePoint3 = new Point(3, 4);
         Console.WriteLine($"Before Rotate: {rotatePoint3}");
         rotatePoint3.Rotate(180);
-        Console.WriteLine($"After Rotate(180°): {rotatePoint3}");
+        Console.WriteLine($"After Rotate(180Â°): {rotatePoint3}");
         Console.WriteLine();
     }
 
@@ -34363,17 +34363,17 @@ Console.WriteLine();
 Point rotatePoint1 = new Point(10, 0);
 Console.WriteLine($"Before Rotate: {rotatePoint1}");
 rotatePoint1.Rotate(90);
-Console.WriteLine($"After Rotate(90°): {rotatePoint1}");
+Console.WriteLine($"After Rotate(90Â°): {rotatePoint1}");
 
 Point rotatePoint2 = new Point(5, 5);
 Console.WriteLine($"Before Rotate: {rotatePoint2}");
 rotatePoint2.Rotate(45);
-Console.WriteLine($"After Rotate(45°): {rotatePoint2}");
+Console.WriteLine($"After Rotate(45Â°): {rotatePoint2}");
 
 Point rotatePoint3 = new Point(3, 4);
 Console.WriteLine($"Before Rotate: {rotatePoint3}");
 rotatePoint3.Rotate(180);
-Console.WriteLine($"After Rotate(180°): {rotatePoint3}");
+Console.WriteLine($"After Rotate(180Â°): {rotatePoint3}");
 Console.WriteLine();
 
 public sealed class Path
@@ -34477,7 +34477,7 @@ transformPoint = transformPoint + (5, -3);
 Console.WriteLine($"After translating by (5, -3): {transformPoint}");
 
 transformPoint.Rotate(45);
-Console.WriteLine($"After rotating 45°: {transformPoint}");
+Console.WriteLine($"After rotating 45Â°: {transformPoint}");
 
 Vector2 finalVector = transformPoint.ToVector();
 Console.WriteLine($"Final result as Vector2: {finalVector}");
@@ -34822,12 +34822,12 @@ Console.WriteLine();
 
 string[] answers =
 [
-    "It is certain.",       "Reply hazy, try again.",     "Don’t count on
+    "It is certain.",       "Reply hazy, try again.",     "Donâ€™t count on
 it.",
     "It is decidedly so.",  "Ask again later.",           "My reply is no.",
     "Without a doubt.",     "Better not tell you now.",   "My sources say
 no.",
-    "Yes – definitely.",    "Cannot predict now.",        "Outlook not so
+    "Yes â€“ definitely.",    "Cannot predict now.",        "Outlook not so
 good.",
     "You may rely on it.",  "Concentrate and ask again.", "Very doubtful.",
     "As I see it, yes.",
@@ -34896,7 +34896,7 @@ it.",
     "It is decidedly so.",  "Ask again later.",           "My reply is no.",
     "Without a doubt.",     "Better not tell you now.",   "My sources say
 no.",
-    "Yes – definitely.",    "Cannot predict now.",        "Outlook not so
+    "Yes â€“ definitely.",    "Cannot predict now.",        "Outlook not so
 good.",
     "You may rely on it.",  "Concentrate and ask again.", "Very doubtful.",
     "As I see it, yes.",
@@ -34986,12 +34986,12 @@ await Utilities.ShowConsoleAnimation();
 
 string[] answers =
 [
-    "It is certain.",       "Reply hazy, try again.",     "Don’t count on
+    "It is certain.",       "Reply hazy, try again.",     "Donâ€™t count on
 it.",
     "It is decidedly so.",  "Ask again later.",           "My reply is no.",
     "Without a doubt.",     "Better not tell you now.",   "My sources say
 no.",
-    "Yes – definitely.",    "Cannot predict now.",        "Outlook not so
+    "Yes â€“ definitely.",    "Cannot predict now.",        "Outlook not so
 good.",
     "You may rely on it.",  "Concentrate and ask again.", "Very doubtful.",
     "As I see it, yes.",
@@ -35983,7 +35983,7 @@ static readonly City[] cities = [
     new City("Tokyo", 37_833_000),
     new City("Delhi", 30_290_000),
     new City("Shanghai", 27_110_000),
-    new City("São Paulo", 22_043_000),
+    new City("SÃ£o Paulo", 22_043_000),
     new City("Mumbai", 20_412_000),
     new City("Beijing", 20_384_000),
     new City("Cairo", 18_772_000),
@@ -36033,7 +36033,7 @@ City[] cities = [
     new City("Tokyo", 37_833_000),
     new City("Delhi", 30_290_000),
     new City("Shanghai", 27_110_000),
-    new City("São Paulo", 22_043_000)
+    new City("SÃ£o Paulo", 22_043_000)
 ];
 
 IEnumerable<City> queryMajorCities =
@@ -36281,7 +36281,7 @@ static readonly City[] cities = [
     new City("Tokyo", 37_833_000),
     new City("Delhi", 30_290_000),
     new City("Shanghai", 27_110_000),
-    new City("São Paulo", 22_043_000),
+    new City("SÃ£o Paulo", 22_043_000),
     new City("Mumbai", 20_412_000),
     new City("Beijing", 20_384_000),
     new City("Cairo", 18_772_000),
@@ -38447,7 +38447,7 @@ arrList.Add(
     new Student
     (
         FirstName: "Claire",
-        LastName: "O’Donnell",
+        LastName: "Oâ€™Donnell",
         ExamScores: new int[] { 75, 84, 91, 39 }
     ));
 arrList.Add(
@@ -50204,11 +50204,11 @@ string columns = "Column 1\tColumn 2\tColumn 3";
 string rows = "Row 1\r\nRow 2\r\nRow 3";
 
 string title = "\"The \u00C6olean Harp\", by Samuel Taylor Coleridge";
-//Output: "The Æolean Harp", by Samuel Taylor Coleridge
+//Output: "The Ã†olean Harp", by Samuel Taylor Coleridge
 
 // Verbatim string
 string title = "\"The \u00C6olean Harp\", by Samuel Taylor Coleridge";
-//Output: "The Æolean Harp", by Samuel Taylor Coleridge
+//Output: "The Ã†olean Harp", by Samuel Taylor Coleridge
 string filePath = @"C:\Users\scoleridge\Documents\";
 //Output: C:\Users\scoleridge\Documents\
 
