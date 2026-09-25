@@ -1,6 +1,6 @@
 ﻿Console.WriteLine("Hello, World");
 
-// Explicit Main entry point
+// Explicit entry point
 using System;
 namespace TourOfCsharp;
 
